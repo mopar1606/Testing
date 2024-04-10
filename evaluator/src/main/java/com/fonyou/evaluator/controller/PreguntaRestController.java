@@ -55,7 +55,7 @@ public class PreguntaRestController {
 	@PostMapping("/preguntas")
 	public ResponseEntity<?> create(@Valid @RequestBody PreguntaEntity objeto, BindingResult result) {
 		
-		PreguntaEntity objetoNew = null;
+		PreguntaDTO outDTO;
 		Map<String, Object> response = new HashMap<>();
 		
 		if(result.hasErrors()) {
@@ -70,7 +70,7 @@ public class PreguntaRestController {
 		}
 		
 		try {
-			objetoNew = preguntaService.save(objeto);
+			outDTO = modelMapper.map(preguntaService.save(objeto),PreguntaDTO.class);
 		} catch(DataAccessException e) {
 			response.put("mensaje", "Error al insertar pregunta en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -78,7 +78,7 @@ public class PreguntaRestController {
 		}
 		
 		response.put("mensaje", "Pregunta creada con éxito!");
-		response.put("objeto", objetoNew);
+		response.put("objeto", outDTO);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 }
