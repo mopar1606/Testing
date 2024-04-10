@@ -15,4 +15,5 @@ public class ExamenDTO {
 
     private Long idExamen;
     private Date fechaPresentacion;
+    private String nombreEstudiante;
 }

@@ -36,8 +36,11 @@ public class PreguntaRestController {
 	private IPreguntaService preguntaService;
 	
 	@GetMapping("/preguntas")
-	public List<PreguntaEntity> index() {
-		return preguntaService.findAll();
+	public List<PreguntaDTO> index() {
+		return preguntaService.findAll()
+				.stream()
+				.map(outDTO -> modelMapper.map(outDTO, PreguntaDTO.class))
+				.collect(Collectors.toList());
 	}
 	
 	@GetMapping("/preguntas/{idExamen}")
@@ -45,7 +48,8 @@ public class PreguntaRestController {
 		ExamenEntity examenEntity = ExamenEntity.builder().idExamen(idExamen).build();
 		return preguntaService.findByExamen(examenEntity)
 				.stream()
-				.map(outDTO -> modelMapper.map(outDTO, PreguntaDTO.class)).collect(Collectors.toList());
+				.map(outDTO -> modelMapper.map(outDTO, PreguntaDTO.class))
+				.collect(Collectors.toList());
     }
 	
 	@PostMapping("/preguntas")
