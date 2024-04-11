@@ -2,6 +2,7 @@ package com.fonyou.evaluator.controller;
 
 import com.fonyou.evaluator.evaluatormodels.entity.ExamenEntity;
 import com.fonyou.evaluator.evaluatormodels.outputDTO.ExamenDTO;
+import com.fonyou.evaluator.evaluatormodels.outputDTO.ExamenEstudianteDTO;
 import com.fonyou.evaluator.services.IExamenService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -55,7 +56,7 @@ public class ExamenRestController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
 
-        response.put("examenDto", modelMapper.map(objeto, ExamenDTO.class));
+        response.put("examenEstudianteDto", modelMapper.map(objeto, ExamenEstudianteDTO.class));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
