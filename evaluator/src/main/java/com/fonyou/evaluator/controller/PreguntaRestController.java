@@ -54,7 +54,7 @@ public class PreguntaRestController {
 	
 	@PostMapping("/preguntas")
 	public ResponseEntity<?> create(@Valid @RequestBody PreguntaEntity objeto, BindingResult result) {
-		
+
 		PreguntaDTO outDTO;
 		Map<String, Object> response = new HashMap<>();
 		

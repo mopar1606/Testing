@@ -11,8 +11,9 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExamenDTO {
+public class ExamenEstudianteDTO {
 
     private Long idExamen;
     private Date fechaPresentacion;
+    private  EstudianteDTO estudiante;
 }

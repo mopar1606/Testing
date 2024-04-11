@@ -5,14 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExamenDTO {
+public class EstudianteDTO {
 
-    private Long idExamen;
-    private Date fechaPresentacion;
+    private Long idEstudiante;
+    private String nombreEstudiante;
+    private Integer edadEstudiante;
+    private String ciudadEstudiante;
+    private String timeZoneEstudiante;
 }

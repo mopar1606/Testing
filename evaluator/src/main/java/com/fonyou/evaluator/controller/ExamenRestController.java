@@ -1,8 +1,10 @@
 package com.fonyou.evaluator.controller;
 
 import com.fonyou.evaluator.evaluatormodels.entity.ExamenEntity;
+import com.fonyou.evaluator.evaluatormodels.outputDTO.ExamenDTO;
 import com.fonyou.evaluator.services.IExamenService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -20,11 +22,17 @@ import java.util.stream.Collectors;
 public class ExamenRestController {
 
     @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
     private IExamenService examenService;
 
     @GetMapping("/examenes")
-    public List<ExamenEntity> index() {
-        return examenService.findAll();
+    public List<ExamenDTO> index() {
+        return examenService.findAll()
+                .stream()
+                .map(outDTO -> modelMapper.map(outDTO, ExamenDTO.class))
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/examenes/{id}")
@@ -47,8 +55,8 @@ public class ExamenRestController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
 
-        response.put("objeto", objeto);
-        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+        response.put("examenDto", modelMapper.map(objeto, ExamenDTO.class));
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/examenes")
