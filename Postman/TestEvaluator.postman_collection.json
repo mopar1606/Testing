@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "71bb9f1d-eea9-4214-b506-f48c475bc635",
+		"name": "TestEvaluator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6746838"
+	},
+	"item": [
+		{
+			"name": "EstudianteLista",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PreguntaLista",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/preguntas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"preguntas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExamenesLista",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/examenes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"examenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EstudianteById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/estudiantes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"estudiantes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PreguntaByIdExamen",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/preguntas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"preguntas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExamenesById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8282/api/examenes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"examenes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EstudianteCrear",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreEstudiante\": \"David\",\r\n    \"edadEstudiante\": 20,\r\n    \"ciudadEstudiante\": \"Bogota\",\r\n    \"timeZoneEstudiante\": \"Prueba2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PreguntaCrear",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"textoPregunta\": \"¿Cuál es la capital de Italia?\",\r\n    \"respuestaA\": \"Londres\",\r\n    \"respuestaB\": \"Madrid\",\r\n    \"respuestaC\": \"Roma\",\r\n    \"respuestaD\": \"Peru\",\r\n    \"respuestaOk\": \"Roma\",\r\n    \"puntaje\": 10,\r\n    \"examen\": {\r\n        \"idExamen\": 2,\r\n        \"fecha\": \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/preguntas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"preguntas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExamenesCrear",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaPresentacion\": \"2022-04-08\",\r\n    \"estudiante\": {\r\n        \"idEstudiante\": 1,\r\n        \"nombreEstudiante\": \"\",\r\n        \"edadEstudiante\": 0,\r\n        \"ciudadEstudiante\": \"\",\r\n        \"timeZoneEstudiante\": \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/api/examenes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"api",
+						"examenes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

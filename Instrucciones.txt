@@ -1,0 +1,24 @@
+###INSTRUCCIONES
+
+###FOLDER CONFIGS
+##pom.xml
+#Contiene la configuración del proyecto y sus librerias
+##settings.xml
+#Contiene la configuración del archivo settings para conectarse a un repositorio maven especifico
+##toolchains.xml
+#Archivo opcional si se despliega desde eclipse
+
+###FOLDER EVALUATOR
+##Contiene el proyecto maven SpringBoot, importar en eclipse o en Intellij
+
+###FOLDER POSTMAN
+##TestEvaluator.postman_collection.json
+#Archivo Json con las peticiones usadas en el proyecto.
+
+###FOLDER scriptBD
+##ScriptDB.sql
+#Archivo de creación de la estructura de base de datos, debe estar conectado a la base de datos.
+##Comando de conexión
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -h localhost -U postgres -d postgres -p 5432
+#Este comando solo aplica para Windows, un avez ingresado, digitar la contraseña
+#12345
